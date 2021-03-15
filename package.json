@@ -1,5 +1,6 @@
 {
-  "name": "employee-directory",
+  "homepage": "https://banuakman.github.io/Employee-Directory-react",
+  "name": "react-employee-directory",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
