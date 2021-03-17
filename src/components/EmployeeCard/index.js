@@ -1,19 +1,19 @@
-import React, { Component } from "react";
+import React from "react";
 // import "./style.css";
 
-class EmployeeCard extends Component {
-  render() {
-    return (
-      <tr>
-        <th scope="row">picture</th>
-        <td>Daenerys</td>
-        <td>Targaryen</td>
-        <td>mail@mail.com</td>
-        <td>Pentos</td>
-        <td>01-01-1900</td>
-      </tr>
-    );
-  }
-}
+const EmployeeCard = ({ id, picture, first, last, email, location, dob }) => {
+  return (
+    <tr key={id}>
+      <th scope="row">
+        <img src={picture} alt="employee" />
+      </th>
+      <td>{first}</td>
+      <td>{last}</td>
+      <td>{email}</td>
+      <td>{location}</td>
+      <td>{dob}</td>
+    </tr>
+  );
+};
 
 export default EmployeeCard;

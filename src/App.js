@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Header";
 import EmployeeTable from "./components/EmployeeTable";
-import getPeople from "./utils/API";
+import EmployeeCard from "./components/EmployeeCard";
+import API from "./utils/API";
 import "./App.css";
 
 class App extends Component {
@@ -10,14 +11,11 @@ class App extends Component {
     persons: [],
   };
   componentDidMount() {
-    this.getAllPeople();
+    this.getPeople();
   }
-  getAllPeople = () => {
-    getPeople().then((data) =>
-      this.setState({
-        persons: data.results,
-      })
-    );
+  getPeople = async () => {
+    const { data } = await API.data();
+    this.setState({ persons: data.results });
   };
 
   render() {
@@ -25,7 +23,21 @@ class App extends Component {
       <div className="App">
         <Wrapper>
           <Title />
-          <EmployeeTable />
+          <EmployeeTable>
+            {this.state.persons.map((person, index) => {
+              return (
+                <EmployeeCard
+                  id={index}
+                  picture={person.picture.medium}
+                  first={person.name.first}
+                  last={person.name.last}
+                  email={person.email}
+                  location={person.location.country}
+                  dob={person.dob.date}
+                />
+              );
+            })}
+          </EmployeeTable>
         </Wrapper>
       </div>
     );

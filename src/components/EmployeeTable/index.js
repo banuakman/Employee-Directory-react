@@ -1,8 +1,7 @@
 import React from "react";
-import EmployeeCard from "../EmployeeCard";
 // import "./style.css";
 
-const EmployeeTable = () => {
+const EmployeeTable = ({ children }) => {
   return (
     <table class="table">
       <thead>
@@ -15,9 +14,7 @@ const EmployeeTable = () => {
           <th scope="col">DOB</th>
         </tr>
       </thead>
-      <tbody>
-        <EmployeeCard />
-      </tbody>
+      <tbody>{children}</tbody>
     </table>
   );
 };
