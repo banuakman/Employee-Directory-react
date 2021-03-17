@@ -6,8 +6,7 @@ function Title() {
     <div className="title">
       <h1>Employee Directory</h1>
       <p>
-        use the search box to narrow your results or click on carrots to filter
-        by heading
+        use the search box to narrow your results or click to filter by heading
       </p>
     </div>
   );
